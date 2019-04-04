@@ -7,7 +7,6 @@ const router = express.Router();
 router.get('/:shortUrl', (req, res) => {
     Link.findOne({shortUrl: req.params.shortUrl})
         .then(result => {
-            console.log(result, "RESULT")
             if (result) {
                 return res.status(301).redirect(result.originalUrl);
             }
